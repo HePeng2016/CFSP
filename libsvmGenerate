@@ -1,0 +1,29 @@
+#! /bin/sh
+Positive=$1
+Negative=$2
+OutPutDir=$3
+Positive_seq=`tr -dc "[:alpha:]" < /dev/urandom | head -c 6` 
+Negative_seq=`tr -dc "[:alpha:]" < /dev/urandom | head -c 6`
+grep -v ">" $Positive > $Positive_seq
+grep -v ">" $Negative > $Negative_seq 
+Feature=`tr -dc "[:alpha:]" < /dev/urandom | head -c 6` 
+motifTools   Gen    $Positive_seq        $Feature
+H5c_Simple_1=`tr -dc "[:alpha:]" < /dev/urandom | head -c 6`
+H5c_Simple_0=`tr -dc "[:alpha:]" < /dev/urandom | head -c 6`
+awk -F % '{printf "1 " $1 "\n"}'   $Positive_seq    >  $H5c_Simple_1
+awk -F % '{printf "0 " $1 "\n"}'   $Negative_seq     >  $H5c_Simple_0
+all_Simple=`tr -dc "[:alpha:]" < /dev/urandom | head -c 6` 
+cat $H5c_Simple_1 $H5c_Simple_0 > $all_Simple
+chmod 0755 $all_Simple 
+chmod 0755 $Feature 
+awk  '{print substr($1,1,length($1)-1)}' $Feature > $OutPutDir'Feature'
+motifTools  Stat  $Feature  $Positive_seq  $OutPutDir'FeatureProfile'  
+motifTools  Map   $Feature  $OutPutDir'FeatureProfile'  $all_Simple   $OutPutDir'.libsvm'  
+
+ rm $Positive_seq
+ rm $Negative_seq 
+ rm $H5c_Simple_1
+ rm $H5c_Simple_0
+ rm $all_Simple
+ rm $Feature
+

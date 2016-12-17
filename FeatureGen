@@ -1,0 +1,8 @@
+#! /bin/sh
+Simple_seq==`tr -dc "[:alpha:]" < /dev/urandom | head -c 6`
+grep -v ">" $1 > $Simple_seq
+motifTools Gen  $Simple_seq   $2.Feature
+motifTools Stat   $2.Feature  $Simple_seq  $2.FeatureProfile
+rm $Simple_seq 
+
+
