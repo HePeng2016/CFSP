@@ -68,19 +68,12 @@ The format of Feature FeatureProfile  file is described as follow:
 
 
 
+        motifTools  Map Feature FeatureProfile SimpleFile  Out.libsvm
+        
 
-
-
-
-
-
-
-
-
-
-
-
-
+  This command is composed of a keyword followed with Feature file FeatureProfile file orginal sequence file and out file.The output file is libsvm format.FeatureProfile is unnecessary. 
+   
+   
  
 # Encapsulated Commands
 
