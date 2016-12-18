@@ -1,0 +1,6 @@
+ mkdir  $HOME/MotifToolbin
+ cp   motifTools libsvmGenerate FeatureGen libsvmGenWithFeature  $HOME/MotifToolbin
+ cd  ~
+ echo "export PATH=\$PATH:\$HOME/MotifToolbin"  >> .bashrc
+ 
+ 
