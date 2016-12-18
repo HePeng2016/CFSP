@@ -50,7 +50,7 @@ The format of Feature FeatureProfile  file is described as follow:
     B [ SUB N1 N2 C A ]
     
     
-  N is a number identify which frequent sequence complex this muational information belong to. 
+  N is a number identify which frequent sequence complex this muational information belong to.
   M is the frequence for this frequent sequence complex. 
 A is the count of mutional information for for this frequent sequence complex.
   B is the frequence for this mutional information. 
