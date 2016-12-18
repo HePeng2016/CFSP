@@ -37,17 +37,14 @@ Each line indicated a frequent sequence complex,Symbol '.' denote  a gap between
    
 
   
-  The name of input files and output feature file are followed by the keyword 'Stat',one input file is frequent sequence complexs file and another file is orginal sequences 
-file. The output file recorded the mutational information for each  frequent sequence in 
-the FeatureFile. 
+  The name of input files and output feature file are followed by the keyword 'Stat',one input file is frequent sequence complexs file and original sequence file.The output file recorded the mutational information for each frequent sequence in the FeatureFile.  
 
-
-The format of Feature FeatureProfile  file is described as follow:
+ The format of Feature FeatureProfile file is described as follow:
  
    
-    N   M 
-    A
-    B [ SUB N1 N2 C A ]
+     N   M 
+     A
+     B [ SUB N1 N2 C A ]
     
     
   N is a number identify which frequent sequence complex this muational information belong to.
@@ -68,10 +65,19 @@ The format of Feature FeatureProfile  file is described as follow:
 
 
 
-        motifTools  Map Feature FeatureProfile SimpleFile  Out.libsvm
+        motifTools  Map Feature FeatureProfile SimpleTagFile  Out.libsvm
         
 
-  This command is composed of a keyword followed with Feature file FeatureProfile file orginal sequence file and out file.The output file is libsvm format.The FeatureProfile is unnecessary. 
+  This command is composed of a keyword followed with Feature file,FeatureProfile file ,sequence file which recorded sequences with tag and out file.The output file is libsvm format.The FeatureProfile is unnecessary. 
+    
+  The format of SimpleTagFile is described as follow:
+     
+      1 TTTAACCTT.. 
+      0 AAACCCTTG.. 
+      1 CCCGGTTTA..
+      ...
+
+  The first symbol is the tag for each sequence.
    
    
  
