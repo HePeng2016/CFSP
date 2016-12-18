@@ -1,19 +1,50 @@
-#installation
+#Installation
 
     ./make 
  
 Compile the source code.
  
-   ./install
+    ./install
    
 Configure the environmental variable, logging again is necessary to make all commands available.
 
 
-#elemental Comands 
+#Elemental Comands 
 
-  motifTools   Gen  SimpleFile  FeatureFile 
+    motifTools   Gen  SimpleFile  FeatureFile 
   
-The input file name and feature file name are followed by the keyword 'Gen', frequent sequence with 
+The input file name and output feature file name are followed by the keyword 'Gen', frequent sequence complexs which is composed by frequent sequence and gaps are recorded in FeatureFile. 
+
+The format of SimpleFile is described as follow:
+
+    TTTAACCTT.. 
+    AAACCCTTG.. 
+    CCCGGTTTA..
+    ...
+    
+There is one sequence in each line.
+
+ 
+The format of Feature file is described as follow:
+
+    GGCAC.TGGCA...
+    
+Each line indicated a frequent sequence complex,Symbol '.' denote  a gap between two frequent sequence.    
+
+    motifTools  Stat   FeatureFile  SimpleFile  FeatureProfileFile
+   
+  The name of input files and output feature file are followed by the keyword 'Stat',one input file is frequent sequence complexs file and another file is orginal sequences 
+file. The output file recorded the mutational information for each  frequent sequence in 
+the FeatureFile. 
+
+The format of Feature FeatureProfile  file is described as follow:
+
+   
+   
+
+
+
+
 
 
 
