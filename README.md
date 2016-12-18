@@ -51,11 +51,17 @@ The format of Feature FeatureProfile  file is described as follow:
     
     
   N is a number identify which frequent sequence complex this muational information belong to. 
+  
   M is the frequence for this frequent sequence complex. 
+  
 A is the count of mutional information for for this frequent sequence complex.
+
   B is the frequence for this mutional information. 
+  
   N1 is a number to identify which frequent sequence the muation was occurred in. 
-  N2 is the position of the mutation at the frequent seuqeunce. 
+  
+  N2 is the position of the mutation at the frequent seuqeunce.
+  
   The follow two symbol denote the change from one to another. 
 SUB/INS/DEL is the muational type. 
 
@@ -79,15 +85,15 @@ SUB/INS/DEL is the muational type.
 
 The encapsulated Command is composed of elemental commands and shell scripts.  
 
-  FeatureGen   SampleFile  OutFileName
+    FeatureGen   SampleFile  OutFileName
 
 frequent sequences.
 
-libsvmGenWithFeature PositiveSample NegativeSample FeatureFile FeatureProfile OutFileName
+    libsvmGenWithFeature PositiveSample NegativeSample FeatureFile FeatureProfile OutFileName
 
   This command will generate libsvm format file, PositiveSample, NegativeSample are combined together and are mapped with frequent sequences and mutation information for those frequent sequences.
 
-libsvmGenerate  PositiveSample  NegativeSample  OutFileName
+        libsvmGenerate  PositiveSample  NegativeSample  OutFileName
 
   This command will generate libsvm format file directly without Feature file input, The FeatureFile FeatureProfile are generated from Positive Sample.
 
@@ -101,6 +107,7 @@ The content of config file:
          MinToleranceLength = 6
 
 There are four parameters:
+
 
      SupportRatio is the minimum frequent for sequences without gaps.
      MinLength is the minimum length for sequences without gaps.
