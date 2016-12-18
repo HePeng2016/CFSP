@@ -27,14 +27,16 @@ There is one sequence in each line.
  
 The format of Feature file is described as follow:
 
-    GGCAC.TGGCA...
+      GGCAC.TGGCA...
     
 Each line indicated a frequent sequence complex,Symbol '.' denote  a gap between two frequent sequence. 
 
 
-    motifTools  Stat   FeatureFile  SimpleFile  FeatureProfileFile
+
+     motifTools  Stat   FeatureFile  SimpleFile  FeatureProfileFile
    
 
+  
   The name of input files and output feature file are followed by the keyword 'Stat',one input file is frequent sequence complexs file and another file is orginal sequences 
 file. The output file recorded the mutational information for each  frequent sequence in 
 the FeatureFile. 
