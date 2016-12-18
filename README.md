@@ -71,7 +71,7 @@ The format of Feature FeatureProfile  file is described as follow:
         motifTools  Map Feature FeatureProfile SimpleFile  Out.libsvm
         
 
-  This command is composed of a keyword followed with Feature file FeatureProfile file orginal sequence file and out file.The output file is libsvm format.FeatureProfile is unnecessary. 
+  This command is composed of a keyword followed with Feature file FeatureProfile file orginal sequence file and out file.The output file is libsvm format.The FeatureProfile is unnecessary. 
    
    
  
@@ -81,18 +81,18 @@ The encapsulated Command is composed of elemental commands and shell scripts.
 
     FeatureGen   SampleFile  OutFileName
 
-frequent sequences.
+   This command will generate two files, one file is feature file that record the frequent sequence with gaps, and another file is feature profile file that record the mutation information for those frequent sequences.
+   
 
-    libsvmGenWithFeature PositiveSample NegativeSample FeatureFile FeatureProfile OutFileName
+       libsvmGenWithFeature PositiveSample NegativeSample FeatureFile FeatureProfile OutFileName
 
   This command will generate libsvm format file, PositiveSample, NegativeSample are combined together and are mapped with frequent sequences and mutation information for those frequent sequences.
 
         libsvmGenerate  PositiveSample  NegativeSample  OutFileName
 
   This command will generate libsvm format file directly without Feature file input, The FeatureFile FeatureProfile are generated from Positive Sample.
-
-
-
+  
+  
 The content of config file:
 
          SupportRatio = 0.2
@@ -103,8 +103,8 @@ The content of config file:
 There are four parameters:
 
 
-     SupportRatio is the minimum frequent for sequences without gaps.
-     MinLength is the minimum length for sequences without gaps.
-     ThresholdRatio is the minimum frequent for sequences with gaps.
-     MinToleranceLength is the minimum Length for sequences will do approximate match.
+     SupportRatio is the minimum frequence for single frequent sequence.
+     MinLength is the minimum length for single frequent sequence.
+     ThresholdRatio is the minimum frequent for frequnent sequence complex.
+     MinToleranceLength is the minimum length for frequent sequence will do approximate match.
 
