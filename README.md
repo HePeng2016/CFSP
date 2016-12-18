@@ -38,9 +38,28 @@ file. The output file recorded the mutational information for each  frequent seq
 the FeatureFile. 
 
 The format of Feature FeatureProfile  file is described as follow:
+ 
+    N   M 
+    A
+    B [SUB N1 N2 C A ]
+    
+    
+N is a number identify which frequent sequence complex this muational information belong to. 
+M is the frequence for this frequent sequence complex. 
+A is the count of mutional information for for this frequent sequence complex.
+B is the frequence for this mutional information. 
+N1 is a number to identify which frequent sequence the muation was occurred in. 
+N2 is the position of the mutation at the frequent seuqeunce. 
+The follow two symbol denote the change from one to another. 
 
-   
-   
+SUB/INS/DEL is the muational type. 
+
+
+
+
+
+
+
 
 
 
