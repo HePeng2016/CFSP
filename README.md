@@ -79,7 +79,7 @@ Each line indicated a frequent sequence complex,Symbol '.' denote  a gap between
 
   The first symbol is the tag for each sequence.
    
-   
+  The config file is necessary that exist in the same directory. 
  
 # Encapsulated Commands
 
