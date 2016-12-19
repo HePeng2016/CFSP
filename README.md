@@ -118,8 +118,9 @@ There are four parameters:
      ThresholdRatio is the minimum frequence for frequnent sequence complex.
      MinToleranceLength is the minimum length for frequent sequence will do approximate match.
      
-#The demo files for test locate in MotifTest direction.
+#The demo commands. 
    
+    
 
 
 
