@@ -120,7 +120,10 @@ There are four parameters:
      
 #The demo commands. 
    
-    
+   Demo files for test are located in MotifTest file. 
+   
+        FeatureGen Gen OutFileName 
+        libsvmGenerate PositiveSample NegativeSample OutFileName 
 
 
 
