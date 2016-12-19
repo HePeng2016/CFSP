@@ -79,7 +79,11 @@ Each line indicated a frequent sequence complex,Symbol '.' denote  a gap between
 
   The first symbol is the tag for each sequence.
    
-  The config file is necessary that exist in the same directory. 
+  The config file is necessary that exist in the same directory with data file. if not,the path of config file must be specified.
+  
+  e.g 
+  
+      motifTools  Gen  SimpleFile  -config  configPATH/config
  
 # Encapsulated Commands
 
@@ -87,16 +91,16 @@ The encapsulated Command is composed of elemental commands and shell scripts.
 
     FeatureGen   SampleFile  OutFileName
 
-   This command will generate two files, one file is feature file that record the frequent sequence with gaps, and another file is feature profile file that record the mutation information for those frequent sequences.
+   This command will generate two files, one file is feature file that record the frequent sequence with gaps, and another file is feature profile file that record the mutation information for those frequent sequences. The SampleFile is fasta format. 
    
 
        libsvmGenWithFeature PositiveSample NegativeSample FeatureFile FeatureProfile OutFileName
 
-  This command will generate libsvm format file, PositiveSample, NegativeSample are combined together and are mapped with frequent sequences and mutation information for those frequent sequences.
+  This command will generate libsvm format file, PositiveSample, NegativeSample are combined together and are mapped with frequent sequences and mutation information for those frequent sequences. positiveSample and NegativeSample are fasta format.
 
         libsvmGenerate  PositiveSample  NegativeSample  OutFileName
 
-  This command will generate libsvm format file directly without Feature file input, The FeatureFile FeatureProfile are generated from Positive Sample.
+  This command will generate libsvm format file directly without Feature file input, The FeatureFile FeatureProfile are generated from Positive Sample.positiveSample and NegativeSample are fasta format.
   
   
 The content of config file:
@@ -113,4 +117,9 @@ There are four parameters:
      MinLength is the minimum length for single frequent sequence.
      ThresholdRatio is the minimum frequence for frequnent sequence complex.
      MinToleranceLength is the minimum length for frequent sequence will do approximate match.
+     
+#The demo files for test locate in MotifTest direction.
+   
+
+
 
