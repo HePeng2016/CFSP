@@ -1,0 +1,5 @@
+SupportRatio = 0.1 
+MinLength =  5
+ThresholdRatio = 0.05
+MinToleranceLength = 6
+
