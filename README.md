@@ -94,7 +94,7 @@ The encapsulated Command is composed of elemental commands and shell scripts.
    This command will generate two files, one file is feature file that record the frequent sequence with gaps, and another file is feature profile file that record the mutation information for those frequent sequences. The SampleFile is fasta format. 
    
 
-       libsvmGenWithFeature PositiveSample NegativeSample FeatureFile FeatureProfile OutFileName
+       libsvmGenWithFeature FeatureFile FeatureProfile PositiveSample NegativeSample OutFileName
 
   This command will generate libsvm format file, PositiveSample, NegativeSample are combined together and are mapped with frequent sequences and mutation information for those frequent sequences. positiveSample and NegativeSample are fasta format.
 
