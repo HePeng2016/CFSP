@@ -94,9 +94,9 @@ The encapsulated Command is composed of elemental commands and shell scripts.
    This command will generate two files, one file is feature file that record the frequent sequence with gaps, and another file is feature profile file that record the mutation information for those frequent sequences. The SampleFile is fasta format. 
    
 
-       libsvmGenWithFeature FeatureFile FeatureProfile PositiveSample NegativeSample OutFileName
+       libsvmGenWithFeature FeatureFile FeatureProfile    Class1Sample Class2Sample OutFileName
 
-  This command will generate libsvm format file, PositiveSample, NegativeSample are combined together and are mapped with frequent sequences and mutation information for those frequent sequences. positiveSample and NegativeSample are fasta format.
+  This command will generate libsvm format file, Class1Sample, Class2Sample are combined together and are mapped with frequent sequences and mutation information for those frequent sequences.Class1Sample and  Class1Sample are fasta format.
 
         libsvmGenerate  PositiveSample  NegativeSample  OutFileName
 
@@ -121,9 +121,18 @@ There are four parameters:
 #The demo commands. 
    
    Demo files for test are located in MotifTest file. 
+   For two class:
    
-        FeatureGen Gen OutFileName 
         libsvmGenerate PositiveSample NegativeSample OutFileName 
+        
+   For muticlass: 
+    
+        FeatureGen   FeatureDateSet  FeatureFile
+        libsvmGenWithFeature  FeatureFile.Feature  FeatureFile.FeatureProfile  Class1Sample Class2Sample ..  ClassNSample  OutFileName
+        
+   
+   
+        
 
 
 
