@@ -79,7 +79,8 @@ Each line indicated a frequent sequence complex,Symbol '.' denote  a gap between
 
   The first symbol is the tag for each sequence.
    
-  The config file is necessary that exist in the same directory with data file. if not,the path of config file must be specified.
+
+The config file is necessary that exist in the same directory with data file. if not,the path of config file must be specified.
   
   e.g 
   
@@ -125,9 +126,11 @@ There are four parameters:
    
         libsvmGenerate PositiveSample NegativeSample OutFileName 
         
+   
    For muticlass: 
-    
-        FeatureGen   FeatureDateSet  FeatureFile
+   
+   
+        FeatureGen   FeatureDateSet  FeatureFile
         libsvmGenWithFeature  FeatureFile.Feature  FeatureFile.FeatureProfile  Class1Sample Class2Sample ..  ClassNSample  OutFileName
         
    
