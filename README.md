@@ -136,6 +136,6 @@ There are four parameters:
    
    For lazy user:
    
-        libsvmGenWithFeatureLazy  Class1Sample Class2Sample ..  ClassNSample  OutFileName  
+        libsvmGenerateLazy  Class1Sample Class2Sample ..  ClassNSample  OutFileName  
 
 
