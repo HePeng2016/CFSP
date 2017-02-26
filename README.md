@@ -134,8 +134,8 @@ There are four parameters:
         libsvmGenWithFeature  FeatureFile.Feature  FeatureFile.FeatureProfile  Class1Sample Class2Sample ..  ClassNSample  OutFileName
         
    
+   For lazy user:
    
-        
-
+        libsvmGenWithFeatureLazy  Class1Sample Class2Sample ..  ClassNSample  OutFileName  
 
 
