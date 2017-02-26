@@ -1,0 +1,67 @@
+#/bin/bash
+args=("$@")
+length=$#
+length=$(($length - 1))
+OutPutDir=${args[$length]}
+
+if [ $length -le 1 ]
+then
+  echo $length 
+  echo  'There are not enouph arguments'
+  exit 0
+fi
+
+
+
+Feature=`tr -dc "[:alpha:]" < /dev/urandom | head -c 6`
+TempPositive_seq=`tr -dc "[:alpha:]" < /dev/urandom | head -c 6`
+TempPositive_seq=$TempPositive_seq.'.temp'
+AllLabelSimple=`tr -dc "[:alpha:]" < /dev/urandom | head -c 6`
+all_Simple_Temp=`tr -dc "[:alpha:]" < /dev/urandom | head -c 6`
+all_Simple_Temp=$all_Simple_Temp.'.temp'
+all_Simple_TempBall=`tr -dc "[:alpha:]" < /dev/urandom | head -c 6`
+all_Simple_TempBall=$all_Simple_TempBall.'ball.temp'
+TempPositive=`tr -dc "[:alpha:]" < /dev/urandom | head -c 6`
+TempPositive=$TempPositive.'.temp'
+
+echo "">$all_Simple_Temp
+length=$(($length - 1))
+
+
+ for N in $( seq 0 $length) ; do
+     order=$((N + 1))
+     grep -v ">" ${args[$N]} > $TempPositive
+     awk -F % '{printf  "'$order' " $1 "\n"}'  $TempPositive  >  $TempPositive_seq
+     if [ $order -eq 1 ]
+     then
+        cp $TempPositive_seq $all_Simple_TempBall
+      else
+        cat  $all_Simple_Temp  $TempPositive_seq  > $all_Simple_TempBall
+      fi
+      cp $all_Simple_TempBall $all_Simple_Temp
+ done
+ cp  $all_Simple_TempBall  $AllLabelSimple  
+ cp  $AllLabelSimple   "AllLabelTest.txt"
+
+echo "">$all_Simple_Temp
+ for N in $( seq 0 $length); do
+  order=$((N + 1))
+  grep -v ">" ${args[$N]} > $TempPositive
+   if [ $order -eq 1 ] 
+   then
+      cp $TempPositive_seq $all_Simple_TempBall
+   else 
+      cat  $all_Simple_Temp  $TempPositive_seq  > $all_Simple_TempBall
+  fi  
+ done
+motifTools  Gen  $all_Simple_TempBall  $Feature 
+motifTools  Stat  $Feature  $Feature'FeatureProfile'  
+motifTools  Map $Feature  $Feature'FeatureProfile'   $AllLabelSimple    $OutPutDir'.libsvm'
+
+rm  $Feature
+rm  $AllLabelSimple
+rm  $TempPositive_seq
+rm  $all_Simple_Temp
+rm  $all_Simple_TempBall
+rm  $TempPositive
+
