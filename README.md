@@ -55,15 +55,6 @@ Each line indicates a frequent sequence complex,where periods denote a gap betwe
   B is the frequence for this mutional information.
   
   N1 is a number to identify which frequent sequence the muation was occurred in.
-  
-  N2 is the position of the mutation at the frequent seuqeunce.
-  
-    
-  A is the count of mutional information for for this frequent sequence complex.
-  
-  B is the frequence for this mutional information.
-  
-  N1 is a number to identify which frequent sequence the muation was occurred in.
   
   N2 is the position of the mutation at the frequent seuqeunce.
   
@@ -92,18 +83,20 @@ Each line indicates a frequent sequence complex,where periods denote a gap betwe
 
 The config file is necessary that exist in the same directory with data file. if not,the path of config file must be specified.
   
-  e.g 
+ 
+ e.g 
   
       motifTools  Gen  SimpleFile  -config  configPATH/config
       
  
 The content of config file:
 
-         SupportRatio = 0.2
-         MinLength = 3
-         ThresholdRatio = 0.1
-         MinToleranceLength = 6
-         
+
+     SupportRatio = 0.2
+     MinLength = 3
+     ThresholdRatio = 0.1 
+     MinToleranceLength = 6
+     
 There are four parameters:
      SupportRatio is the minimum frequence for single frequent sequence. 
      MinLength is the minimum length for single frequent sequence.     
@@ -131,8 +124,6 @@ mapped with frequent sequences and mutation information for those frequent seque
 
 
   This command will generate libsvm format file directly without Feature file input,the FeatureFile FeatureProfile are generated from positive Sample. positiveSample and negativeSample are fasta format. 
-  
-  
   
   
      
