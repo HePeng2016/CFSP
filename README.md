@@ -67,7 +67,7 @@ Each line indicates a frequent sequence complex,where periods denote a gap betwe
         
   This command is composed of the keyword, ‘Map’,  followed by the Feature file, FeatureProfile file , sequence file which recorded sequences with tag (SimpleTagFile) and out file (Out.libsvm with libsvm as the format). 
  
-      motifTools  Map  Feature  NULL  SimpleTagFile  Out.libsvm
+       motifTools  Map  Feature  NULL  SimpleTagFile  Out.libsvm
  
   This command can operate as the previous one, except here FeatureProfile is omitted and replaced by another word (in this case -- “NULL”)
     
@@ -81,7 +81,7 @@ Each line indicates a frequent sequence complex,where periods denote a gap betwe
   The first character in a sequence is the tag for that sequence.
    
 
-The config file is necessary that exist in the same directory with data file. if not,the path of config file must be specified.
+  The config file is necessary that exist in the same directory with data file. if not,the path of config file must be specified.
   
  
  e.g 
@@ -92,16 +92,16 @@ The config file is necessary that exist in the same directory with data file. if
 The content of config file:
 
 
-     SupportRatio = 0.2
-     MinLength = 3
-     ThresholdRatio = 0.1 
-     MinToleranceLength = 6
+     SupportRatio = 0.2 
+     MinLength = 3 
+	 ThresholdRatio = 0.1 
+	 MinToleranceLength = 6 
      
 There are four parameters:
-     SupportRatio is the minimum frequence for single frequent sequence. 
-     MinLength is the minimum length for single frequent sequence.     
-     ThresholdRatio is the minimum frequence for frequnent sequence complex.     
-     MinToleranceLength is the minimum length for frequent sequence will do approximate match.
+     SupportRatio is the minimum frequence for single frequent sequence.  
+	 MinLength is the minimum length for single frequent sequence. 
+	 ThresholdRatio is the minimum frequence for frequnent sequence complex.      
+     MinToleranceLength is the minimum length for frequent sequence will do approximate match. 
    
  
 # Encapsulated Commands
@@ -110,20 +110,20 @@ The encapsulated Command is composed of elemental commands and shell scripts.
 
       FeatureGen   SampleFile  OutFileName
 
-  This command will generate two files, one file is feature file that record the frequent sequence with gaps, and another file is feature profile file that record the mutation information for those frequent sequences. The SampleFile is fasta format.  And names of two outputfile are OutFileName.Feature, OutFileName.FeatureProfile.
+This command will generate two files, one file is feature file that record the frequent sequence with gaps, and another file is feature profile file that record the mutation information for those frequent sequences. The SampleFile is fasta format.  And names of two outputfile are OutFileName.Feature, OutFileName.FeatureProfile.
  
  
       libsvmGenWithFeature FeatureFile FeatureProfile    Class1Sample Class2Sample OutFileName
           
           
-  This command will generate libsvm format file, Class1Sample, Class2Sample … ClassNSample are combined together and are
+This command will generate libsvm format file, Class1Sample, Class2Sample … ClassNSample are combined together and are
 mapped with frequent sequences and mutation information for those frequent sequences. Class1Sample, Class2Sample … ClassNSample are fasta format.
 
 
       libsvmGenerate  PositiveSample  NegativeSample  OutFileName
 
 
-  This command will generate libsvm format file directly without Feature file input,the FeatureFile FeatureProfile are generated from positive Sample. positiveSample and negativeSample are fasta format. 
+This command will generate libsvm format file directly without Feature file input,the FeatureFile FeatureProfile are generated from positive Sample. positiveSample and negativeSample are fasta format. 
   
   
      
