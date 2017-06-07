@@ -55,9 +55,9 @@ Each line indicates a frequent sequence complex,where periods denote a gap betwe
   B is the frequence for this mutional information.
   
   N1 is a number to identify which frequent sequence the muation was occurred in.
-  
+  
   N2 is the position of the mutation at the frequent seuqeunce.
-  
+  
   Letters following N1,N2 denote the change from one to another.
   
   SUB/INS/DEL is the muational type. 
@@ -115,9 +115,9 @@ The encapsulated Command is composed of elemental commands and shell scripts.
         FeatureGen   SampleFile  OutFileName
 
   This command will generate two files, one file is feature file that record the frequent sequence with gaps, and another file is feature profile file that record the mutation information for those frequent sequences. The SampleFile is fasta format.  And names of two outputfile are OutFileName.Feature, OutFileName.FeatureProfile.
- 
- 
-            libsvmGenWithFeature FeatureFile FeatureProfile  Class1Sample Class2Sample OutFileName
+  
+  
+        libsvmGenWithFeature FeatureFile FeatureProfile  Class1Sample Class2Sample OutFileName
           
           
   This command will generate libsvm format file, Class1Sample, Class2Sample … ClassNSample are combined together and are
