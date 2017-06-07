@@ -89,7 +89,8 @@ The content of config file:
      
 There are four parameters:
   
- SupportRatio is the minimum frequence for single frequent sequence.
+ 
+   SupportRatio is the minimum frequence for single frequent sequence.
    
    MinLength is the minimum length for single frequent sequence.
    
