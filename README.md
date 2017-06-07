@@ -121,11 +121,13 @@ The encapsulated Command is composed of elemental commands and shell scripts.
    
 
        libsvmGenWithFeature FeatureFile FeatureProfile    Class1Sample Class2Sample OutFileName
+       
 
   This command will generate libsvm format file, Class1Sample, Class2Sample … ClassNSample are combined together and are
 mapped with frequent sequences and mutation information for those frequent sequences. Class1Sample, Class2Sample … ClassNSample are fasta format.
 
         libsvmGenerate  PositiveSample  NegativeSample  OutFileName
+
 
   This command will generate libsvm format file directly without Feature file input,the FeatureFile FeatureProfile are generated from positive Sample. positiveSample and negativeSample are fasta format. 
   
@@ -137,6 +139,7 @@ mapped with frequent sequences and mutation information for those frequent seque
 #The demo commands. 
    
    Demo files for test are located in MotifTest file. 
+   
    For two class:
    
         libsvmGenerate PositiveSample NegativeSample OutFileName 
