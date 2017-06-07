@@ -2,11 +2,11 @@
 
     ./make 
  
-Compile the source code.
+  Compile the source code.
  
     ./install
    
-Configure the environmental variables; to make all commands available, logging in again is necessary.
+  Configure the environmental variables; to make all commands available, logging in again is necessary.
 
 
 
