@@ -99,13 +99,11 @@ The config file is necessary that exist in the same directory with data file. if
  
 The content of config file:
 
-
-         SupportRatio = 0.2         
-         MinLength = 3         
-         ThresholdRatio = 0.1        
+         SupportRatio = 0.2
+         MinLength = 3
+         ThresholdRatio = 0.1
          MinToleranceLength = 6
-
-
+         
 There are four parameters:
      SupportRatio is the minimum frequence for single frequent sequence. 
      MinLength is the minimum length for single frequent sequence.     
@@ -117,14 +115,14 @@ There are four parameters:
 
 The encapsulated Command is composed of elemental commands and shell scripts.  
 
-        FeatureGen   SampleFile  OutFileName
+      FeatureGen   SampleFile  OutFileName
 
   This command will generate two files, one file is feature file that record the frequent sequence with gaps, and another file is feature profile file that record the mutation information for those frequent sequences. The SampleFile is fasta format.  And names of two outputfile are OutFileName.Feature, OutFileName.FeatureProfile.
-   
-
-       libsvmGenWithFeature FeatureFile FeatureProfile    Class1Sample Class2Sample OutFileName
-       
-
+ 
+ 
+      libsvmGenWithFeature FeatureFile FeatureProfile    Class1Sample Class2Sample OutFileName
+          
+          
   This command will generate libsvm format file, Class1Sample, Class2Sample … ClassNSample are combined together and are
 mapped with frequent sequences and mutation information for those frequent sequences. Class1Sample, Class2Sample … ClassNSample are fasta format.
 
@@ -137,7 +135,6 @@ mapped with frequent sequences and mutation information for those frequent seque
   
   
   
-
      
 #The demo commands. 
    
