@@ -99,7 +99,6 @@ There are four parameters:
    MinToleranceLength is the minimum length for frequent sequence will do approximate match.
    
    
-   
  
 # Encapsulated Commands
 
