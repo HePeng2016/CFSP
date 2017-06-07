@@ -99,29 +99,32 @@ The content of config file:
      
 There are four parameters:
 
-   SupportRatio is the minimum frequence for single frequent sequence. 
-   MinLength is the minimum length for single frequent sequence.
-   ThresholdRatio is the minimum frequence for frequnent sequence complex.      
-   MinToleranceLength is the minimum length for frequent sequence will do approximate match. 
+  There are four parameters:
+   SupportRatio is the minimum frequence for single frequent sequence. 
+   MinLength is the minimum length for single frequent sequence. 
+   ThresholdRatio is the minimum frequence for frequnent sequence complex. 
+   MinToleranceLength is the minimum length for frequent sequence will do approximate match.
+   
+   
    
  
 # Encapsulated Commands
 
 The encapsulated Command is composed of elemental commands and shell scripts.  
 
-      FeatureGen   SampleFile  OutFileName
+        FeatureGen   SampleFile  OutFileName
 
   This command will generate two files, one file is feature file that record the frequent sequence with gaps, and another file is feature profile file that record the mutation information for those frequent sequences. The SampleFile is fasta format.  And names of two outputfile are OutFileName.Feature, OutFileName.FeatureProfile.
  
  
-      libsvmGenWithFeature FeatureFile FeatureProfile    Class1Sample Class2Sample OutFileName
+            libsvmGenWithFeature FeatureFile FeatureProfile  Class1Sample Class2Sample OutFileName
           
           
   This command will generate libsvm format file, Class1Sample, Class2Sample … ClassNSample are combined together and are
 mapped with frequent sequences and mutation information for those frequent sequences. Class1Sample, Class2Sample … ClassNSample are fasta format.
 
 
-      libsvmGenerate  PositiveSample  NegativeSample  OutFileName
+       libsvmGenerate  PositiveSample  NegativeSample  OutFileName
 
 
   This command will generate libsvm format file directly without Feature file input,the FeatureFile FeatureProfile are generated from positive Sample. positiveSample and negativeSample are fasta format. 
