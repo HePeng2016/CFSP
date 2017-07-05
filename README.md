@@ -134,9 +134,6 @@ mapped with frequent sequences and mutation information for those frequent seque
         FeatureGen   FeatureDateSet  FeatureFile
         libsvmGenWithFeature  FeatureFile.Feature  FeatureFile.FeatureProfile  Class1Sample Class2Sample ..  ClassNSample  OutFileName
         
-   
-   For lazy user:
-   
-        libsvmGenerateLazy  Class1Sample Class2Sample ..  ClassNSample  OutFileName  
+    
 
 
