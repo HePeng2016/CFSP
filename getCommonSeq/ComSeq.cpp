@@ -547,10 +547,7 @@ void ComSeq::associte()
                       ResultIDArrayTemp[ResultIDArrayTemp.size()-1] = ResultIDArray[i][j];
                     }
                 }
-            if(filterset.find(ResultIDArrayTemp)!= filterset.end())
-            {
-                  continue;
-            }else
+            if(filterset.find(ResultIDArrayTemp) == filterset.end())
             {
                  filterset.insert(ResultIDArrayTemp);
             }
