@@ -76,7 +76,7 @@ Each line indicates a frequent sequence complex,where periods denote a gap betwe
  
  e.g 
   
-      motifTools  Gen  SimpleFile  -config  configPATH/config
+      motifTools  Gen  SimpleFile  OutFileName  -config  configPATH/config
       
  
 The content of config file:
