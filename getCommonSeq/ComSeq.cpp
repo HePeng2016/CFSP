@@ -1,6 +1,6 @@
 #include "ComSeq.h"
 #include "stdio.h"
-#define SmoothFactor 0.000001
+#define SmoothFactor 0.0000000000000000001
 double  Tolerance_ = 1;
 
 
