@@ -14,7 +14,7 @@
 
     motifTools   Gen  SimpleFile  FeatureFile 
   
-  The input (SimpleFile) and output (FeatureFile) follow the keyword 'Gen'. Frequent sequence complexes, composed by frequent sequence and gaps, are recorded in the FeatureFile. 
+  The input (SimpleFile) and output (FeatureFile) follow the keyword 'Gen'. Frequent sequences module, composed by frequent sequence and gaps, are recorded in the FeatureFile. 
   
 
 The format of the SimpleFile is as follows:
@@ -31,12 +31,12 @@ The format of the FeatureFile is as follows:
 
       GGCAC.TGGCA...
     
-Each line indicates a frequent sequence complex,where periods denote a gap between two frequent sequences. 
+Each line indicates a frequent sequence module,where periods denote a gap between two frequent sequences. 
 
 
      motifTools  Stat   FeatureFile  SimpleFile  FeatureProfileFile
    
-  The input (FeatureFile and SimpleFile) and output (FeatureProfileFile) follow the keyword, 'Stat'.  FeatureFile is a frequent sequence complex file; SimpleFile is an original sequence file. Original sequence, mutational information for each frequent sequence, and each frequent sequence are recorded in the SimpleFile, FeatureProfileFile, and FeatureFile, respectively.
+  The input (FeatureFile and SimpleFile) and output (FeatureProfileFile) follow the keyword, 'Stat'.  FeatureFile is a frequent sequence module file; SimpleFile is an original sequence file. Original sequence, mutational information for each frequent sequence, and each frequent sequence are recorded in the SimpleFile, FeatureProfileFile, and FeatureFile, respectively.
 
 
  The format of Feature FeatureProfile file is as follows:
@@ -46,11 +46,11 @@ Each line indicates a frequent sequence complex,where periods denote a gap betwe
      B [ SUB N1 N2 C A ]
     
     
-  N is a number identify which frequent sequence complex this muational information belong to.
+  N is a number identify which frequent sequences module this muational information belong to.
   
-  M is the frequence for this frequent sequence complex.
+  M is the frequence for this frequent sequence module.
   
-  A is the count of mutional information for for this frequent sequence complex.
+  A is the count of mutional information for for this frequent sequence module.
   
   B is the frequence for this mutional information.
   
@@ -94,7 +94,7 @@ There are four parameters:
    
    MinLength is the minimum length for single frequent sequence.
    
-   ThresholdRatio is the minimum frequence for frequnent sequence complex.
+   ThresholdRatio is the minimum frequence for frequnent sequences module.
    
    MinToleranceLength is the minimum length for frequent sequence will do approximate match.
    
