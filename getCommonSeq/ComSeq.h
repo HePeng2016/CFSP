@@ -78,6 +78,15 @@
   unsigned int endsubID;
  }filteKey;
 
+ typedef struct BaseType{
+  double T;
+  double A;
+  double C;
+  double G;
+ }BaseType;
+
+
+
 
 
 typedef struct DFS {
@@ -408,6 +417,7 @@ public:
     std::vector<std::string>SampleLabel;
     std::map < std::vector <unsigned int>,float > MutationInfoSet;
 
+    void featuresToPSSM(FILE *op);
     void featurestatRead(FILE *ip);
     void featurestat(FILE *filename);
     void Mapping( FILE *op);
