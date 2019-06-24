@@ -191,8 +191,17 @@ int main( int argc , char *argv[] )
                return 0;
        }
 
-    }
 
+        if( strcmp(argv[i],"ToPSSM")==0)
+       {
+               ip1 = fopen(argv[i+1],"r");
+               ip2 = fopen(argv[i+2],"r");
+               ip3 = fopen(argv[i+3],"w+");
+               test.featureread(ip1);
+               test.featurestatRead(ip2);
+               test.featuresToPSSM(ip3);
 
-      return 0;
+       }
+  }
+   return 0;
 }
