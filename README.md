@@ -102,7 +102,7 @@ There are four parameters:
     motifTools   ToPSSM  FeatureFile FeatureProfile  OutPutPSSMfile
   
   
-  This command can transform the mutational information format to PSSM (Position Specific Scoring Matrix) format. FeatureProfile is a mutational information file,FeatureFile is a file recorded frequent sequences set, and the OutPutPSSMfile is a PSSM  format output file. The Score for PSSM will is normalize by the frequency of frequent sequences set. Notice that because the length of motif is fixed so that the insert muational information will be ignored.
+  This command can transform the mutational information format to PSSM (Position Specific Scoring Matrix) format. FeatureProfile is a mutational information file,FeatureFile is a file recorded frequent sequences sets, and the OutPutPSSMfile is a PSSM  format output file. The Score for PSSM will be normalize by the frequency of frequent sequences set. Notice that because the length of motif is fixed so that the insert muational information will be ignored.
    
    
  
