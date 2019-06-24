@@ -14,7 +14,7 @@
 
     motifTools   Gen  SimpleFile  FeatureFile 
   
-  The input (SimpleFile) and output (FeatureFile) follow the keyword 'Gen'. Frequent sequences module, composed by frequent sequence and gaps, are recorded in the FeatureFile. 
+  The input (SimpleFile) and output (FeatureFile) follow the keyword 'Gen'. Frequent sequences set, composed by frequent sequence and gaps, are recorded in the FeatureFile. 
   
 
 The format of the SimpleFile is as follows:
@@ -31,12 +31,12 @@ The format of the FeatureFile is as follows:
 
       GGCAC.TGGCA...
     
-Each line indicates a frequent sequence module,where periods denote a gap between two frequent sequences. 
+Each line indicates a frequent sequence set,where periods denote a gap between two frequent sequences. 
 
 
      motifTools  Stat   FeatureFile  SimpleFile  FeatureProfileFile
    
-  The input (FeatureFile and SimpleFile) and output (FeatureProfileFile) follow the keyword, 'Stat'.  FeatureFile is a frequent sequence module file; SimpleFile is an original sequence file. Original sequence, mutational information for each frequent sequence, and each frequent sequence are recorded in the SimpleFile, FeatureProfileFile, and FeatureFile, respectively.
+  The input (FeatureFile and SimpleFile) and output (FeatureProfileFile) follow the keyword, 'Stat'.  FeatureFile is a frequent sequences set file; SimpleFile is an original sequence file. Original sequence, mutational information for each frequent sequence, and each frequent sequence are recorded in the SimpleFile, FeatureProfileFile, and FeatureFile, respectively.
 
 
  The format of Feature FeatureProfile file is as follows:
@@ -48,9 +48,9 @@ Each line indicates a frequent sequence module,where periods denote a gap betwee
     
   N is a number identify which frequent sequences module this muational information belong to.
   
-  M is the frequence for this frequent sequence module.
+  M is the frequence for this frequent sequences set.
   
-  A is the count of mutional information for for this frequent sequence module.
+  A is the count of mutional information for for this frequent sequences set.
   
   B is the frequence for this mutional information.
   
@@ -65,7 +65,7 @@ Each line indicates a frequent sequence module,where periods denote a gap betwee
 
         motifTools  Map Feature FeatureProfile SimpleTagFile  Out.libsvm
         
-  This command is composed of the keyword, ‘Map’,  followed by the Feature file, FeatureProfile file , sequence file which recorded sequences with tag (SimpleTagFile) and out file (Out.libsvm with libsvm as the format). 
+  This command is composed of the keyword, ‘Map’,  followed by the Feature file, FeatureProfile file, sequence file which recorded sequences with tag (SimpleTagFile) and out file (Out.libsvm with libsvm as the format). 
  
 
   The first character in a sequence is the tag for that sequence.
@@ -98,6 +98,12 @@ There are four parameters:
    
    MinToleranceLength is the minimum length for frequent sequence will do approximate match.
    
+   
+    motifTools   ToPSSM  FeatureFile FeatureProfile  OutPutPSSMfile
+  
+  
+  This command can transform the mutational information format to PSSM (Position Specific Scoring Matrix) format. FeatureProfile is a mutational information file,FeatureFile is a file recorded frequent sequences set, and the OutPutPSSMfile is a PSSM  format output file. The Score for PSSM will is normalize by the frequency of frequent sequences set. Notice that because the length of motif is fixed so that the insert muational information will be ignored.
+   
    
  
 # Encapsulated Commands
