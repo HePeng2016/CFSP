@@ -1462,6 +1462,236 @@ void ComSeq::featurestatRead(FILE *ip)
            }
         }
 
+void ComSeq::featuresToPSSM(FILE *op)
+{
+            int index;
+            int location;
+            int type;
+            char Source;
+            unsigned MotifInf;
+            std::vector < std::vector<std::vector<BaseType> > >FeatureFSSM;
+
+
+
+            FeatureFSSM.resize(features.size());
+
+            for(int i=0;i<features.size();i++)
+            {
+              FeatureFSSM[i].resize(0);
+            }
+
+
+
+   for( std::map < std::vector <unsigned int>,float >::iterator Index = MutationInfoSet.begin();Index!=MutationInfoSet.end(); ++Index )
+   {
+
+        std::vector <unsigned int> MotifInfArray = (*Index).first;
+        double Ratio = (*Index).second;
+        int ID = MotifInfArray[0];
+        std::list<std::string> tempsentence;
+        tempsentence = features[ID];
+        std::vector<std::string> TempArray;
+        std::list<std::string>::iterator it;
+
+
+        for (it = features[ID].begin(); it != features[ID].end(); it++)
+        {
+                     std::string temp;
+                     temp = (*it);
+                     TempArray.resize(TempArray.size()+1);
+                     TempArray[TempArray.size()-1]=temp;
+        }
+
+        if (FeatureFSSM[ID].size()==0)
+        {
+
+              FeatureFSSM[ID].resize( TempArray.size() );
+
+
+
+             for(int i=0;i<TempArray.size();i++)
+            {
+              char * Array = (char*)TempArray[i].c_str();
+              FeatureFSSM[ID][i].resize(strlen(TempArray[i].c_str()));
+
+              for(int I=0;I<strlen(TempArray[i].c_str());I++)
+              {
+                  FeatureFSSM[ID][i][I].T =0.0;
+                  FeatureFSSM[ID][i][I].A =0.0;
+                  FeatureFSSM[ID][i][I].C =0.0;
+                  FeatureFSSM[ID][i][I].G =0.0;
+
+
+                  if( Array[I]=='T'|| Array[I]=='U')
+                  {
+                     FeatureFSSM[ID][i][I].T=1.0;
+                  }
+                  if( Array[I]=='A' )
+                  {
+                     FeatureFSSM[ID][i][I].A=1.0;
+                  }
+                  if(  Array[I]=='C' )
+                  {
+                     FeatureFSSM[ID][i][I].C=1.0;
+                  }
+                  if(  Array[I]=='G')
+                  {
+                     FeatureFSSM[ID][i][I].G=1.0;
+                  }
+              }
+            }
+        }
+
+
+
+             for(int i=0;i<TempArray.size();i++)
+            {
+              char * Array = (char*)TempArray[i].c_str();
+
+              for(int I=0;I<strlen(TempArray[i].c_str());I++)
+              {
+                  if(  Array[I]=='T'|| Array[I]=='U')
+                  {
+                     FeatureFSSM[ID][i][I].T=FeatureFSSM[ID][i][I].T+Ratio;
+                  }
+                  if(  Array[I]=='A')
+                  {
+                     FeatureFSSM[ID][i][I].A=FeatureFSSM[ID][i][I].A+Ratio;
+                  }
+                  if( Array[I]=='C')
+                  {
+                     FeatureFSSM[ID][i][I].C=FeatureFSSM[ID][i][I].C+Ratio;
+                  }
+                  if( Array[I]=='G')
+                  {
+                     FeatureFSSM[ID][i][I].G=FeatureFSSM[ID][i][I].G+Ratio;
+                  }
+              }
+            }
+
+
+
+
+
+
+        for(int i=1;i<MotifInfArray.size();i++)
+        {
+              MotifInf = MotifInfArray[i];
+              index    = MotifInf>>22;
+              location = (MotifInf>>12)&0x3ff;
+              Source   = MotifInf&0xff;
+              type     = ((MotifInf>>8)<<8)&0xfff;
+
+              if(type==SUB2)
+              {
+                  if ( (Source=='T')||(Source=='U') )
+                  {
+                      FeatureFSSM[ID][index][location].T=FeatureFSSM[ID][index][location].T+Ratio;
+                  }
+                  if( Source=='A')
+                  {
+                      FeatureFSSM[ID][index][location].A=FeatureFSSM[ID][index][location].A+Ratio;
+                  }
+                  if( Source=='C')
+                  {
+                     FeatureFSSM[ID][index][location].C=FeatureFSSM[ID][index][location].C+Ratio;
+                  }
+                  if( Source=='G')
+                  {
+                     FeatureFSSM[ID][index][location].G=FeatureFSSM[ID][index][location].G+Ratio;
+                  }
+              }
+
+              if(type==SUB1||type==DEL)
+              {
+                  if( Source=='T'|| Source=='U')
+                  {
+                      FeatureFSSM[ID][index][location].T=FeatureFSSM[ID][index][location].T-Ratio;
+                  }
+                  if( Source=='A' )
+                  {
+                      FeatureFSSM[ID][index][location].A=FeatureFSSM[ID][index][location].A-Ratio;
+                  }
+                  if( Source=='C')
+                  {
+                     FeatureFSSM[ID][index][location].C=FeatureFSSM[ID][index][location].C-Ratio;
+                  }
+                  if( Source=='G')
+                  {
+                     FeatureFSSM[ID][index][location].G=FeatureFSSM[ID][index][location].G-Ratio;
+                  }
+
+              }
+
+
+
+
+        }
+    }
+
+             for(int i=0;i<FeatureFSSM.size();i++)
+            {
+
+                  std::list<std::string>::iterator it;
+
+                  fprintf(op,">");
+
+                  for (it = features[i].begin(); it != features[i].end(); it++)
+                  {
+
+                     std::string temp;
+                     temp = (*it);
+                     fprintf(op,"%s .",temp.c_str());
+                  }
+
+                     fprintf(op,"\n");
+
+                for(int j=0;j<FeatureFSSM[i].size();j++)
+                {
+
+                    fprintf(op,"%s","A [");
+
+                    for(int j2=0;j2<FeatureFSSM[i][j].size();j2++)
+                    {
+                      fprintf(op,"%lf  ",FeatureFSSM[i][j][j2].A);
+                    }
+                     fprintf(op,"%s","]");
+                     fprintf(op,"\n");
+
+                      fprintf(op,"%s","C [");
+                     for(int j2=0;j2<FeatureFSSM[i][j].size();j2++)
+                     {
+                       fprintf(op,"%lf  ",FeatureFSSM[i][j][j2].C);
+                     }
+
+                      fprintf(op,"%s","]");
+                      fprintf(op,"\n");
+
+                        fprintf(op,"%s","G [");
+                      for(int j2=0;j2<FeatureFSSM[i][j].size();j2++)
+                      {
+                       fprintf(op,"%lf  ",FeatureFSSM[i][j][j2].G);
+                      }
+                       fprintf(op,"%s","]");
+                      fprintf(op,"\n");
+
+                      fprintf(op,"%s","T [");
+                      for(int j2=0;j2<FeatureFSSM[i][j].size();j2++)
+                      {
+                        fprintf(op,"%lf  ",FeatureFSSM[i][j][j2].T);
+                      }
+                       fprintf(op,"%s","]");
+                       fprintf(op,"\n");
+                    }
+                    fprintf(op,"\n");
+
+
+                }
+
+            }
+
+
+
 
 
 
