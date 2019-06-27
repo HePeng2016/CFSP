@@ -1682,8 +1682,9 @@ void ComSeq::featuresToPSSM(FILE *op)
                       }
                        fprintf(op,"%s","]");
                        fprintf(op,"\n");
+		       fprintf(op,"\n");
                     }
-                    fprintf(op,"\n");
+                    
 
 
                 }
