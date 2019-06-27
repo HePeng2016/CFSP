@@ -1641,7 +1641,7 @@ void ComSeq::featuresToPSSM(FILE *op)
 
                      std::string temp;
                      temp = (*it);
-                     fprintf(op,"%s .",temp.c_str());
+                     fprintf(op,"%s.",temp.c_str());
                   }
 
                      fprintf(op,"\n");
