@@ -409,11 +409,13 @@ public:
     std::vector< std::vector<ResultEntry> >ResultEntryArray;
     std::vector<Merged_Result>Merged_Result_Array;
     std::vector< std::vector<int> >ResultIDArray;
-    std::vector< std::vector<int> >PatternCountArray;
+    //std::vector< std::vector<int> >PatternCountArray;
     //std::vector< std::vector<int> >PatternLocalEnd;
     //std::vector< std::vector<int> >PatternLocalBegin;
     mapped_matrix<unsigned short> PatternLocalEnd;
     mapped_matrix<unsigned short> PatternLocalBegin;
+    mapped_matrix<unsigned short> PatternCountArray;
+	
 	
     std::set < std::vector<int>,Compare_Tolerance>filtersetTolerance;
     std::vector< std::list<std::string> >features;
