@@ -47,8 +47,8 @@
 #define bindtextdomain(p, d)
 #define textdomain(p)
 #endif
-#include <boost/numeric/ublas/matrix_sparse.hpp>
-#include <boost/numeric/ublas/io.hpp>
+//#include <boost/numeric/ublas/matrix_sparse.hpp>
+//#include <boost/numeric/ublas/io.hpp>
 #define int64 long long
 
 #define _(String) gettext(String)
