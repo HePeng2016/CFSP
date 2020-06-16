@@ -47,7 +47,8 @@
 #define bindtextdomain(p, d)
 #define textdomain(p)
 #endif
-
+#include <boost/numeric/ublas/matrix_sparse.hpp>
+#include <boost/numeric/ublas/io.hpp>
 #define int64 long long
 
 #define _(String) gettext(String)
@@ -409,8 +410,11 @@ public:
     std::vector<Merged_Result>Merged_Result_Array;
     std::vector< std::vector<int> >ResultIDArray;
     std::vector< std::vector<int> >PatternCountArray;
-    std::vector< std::vector<int> >PatternLocalEnd;
-    std::vector< std::vector<int> >PatternLocalBegin;
+    //std::vector< std::vector<int> >PatternLocalEnd;
+    //std::vector< std::vector<int> >PatternLocalBegin;
+    mapped_matrix<unsigned short> PatternLocalEnd;
+    mapped_matrix<unsigned short> PatternLocalBegin;
+	
     std::set < std::vector<int>,Compare_Tolerance>filtersetTolerance;
     std::vector< std::list<std::string> >features;
     std::vector<std::string>Sample;
