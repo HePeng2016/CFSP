@@ -140,6 +140,8 @@ mapped with frequent sequences and mutation information for those frequent seque
         FeatureGen   FeatureDateSet  FeatureFile
         libsvmGenWithFeature  FeatureFile.Feature  FeatureFile.FeatureProfile  Class1Sample Class2Sample ..  ClassNSample  OutFileName
         
-    
+# Cite this as
+
+Peng H. 2020. CFSP: a collaborative frequent sequence pattern discovery algorithm for nucleic acid sequence classification. PeerJ 8:e8965 https://doi.org/10.7717/peerj.8965   
 
 
